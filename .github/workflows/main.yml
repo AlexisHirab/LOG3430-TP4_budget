@@ -13,5 +13,9 @@ jobs:
           python-version: "3.9"
       - name: Install packages
         run: pip install -r requirements.txt
-      - name: Run tests
-        run: python manage.py test
+      - name: Run Git Bisect
+        run: |
+          python myscript.py $BAD_COMMIT $GOOD_COMMIT
+        env:
+          BAD_COMMIT: 1d8748281263e8e7efe7b85c828cd3f600d96bfc 
+          GOOD_COMMIT: main~10 
